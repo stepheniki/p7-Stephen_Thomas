@@ -1,5 +1,5 @@
 /************************************************************************************************************************************** */
-//                                          Barre de recherche principale  - Algorythme version 2
+//                                          Barre de recherche principale  - Algorythme version 2 - Boucles "forEach"
 /************************************************************************************************************************************** */
 function globalSearch() {
     const inputArray = []
