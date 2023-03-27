@@ -32,6 +32,8 @@ Algorigramme de recherche: https://github.com/stepheniki/Projet_7/blob/master/re
 
 Fiche d'investigation de fonctionnalité (pdf): https://github.com/stepheniki/Projet_7/blob/master/recherche/fiche%20investigation%20et%20fonctionnalit%C3%A9.pdf
 
-Test de comparaison d'algorhitme (jsben.ch) : http://jsben.ch/5szy8
+Test de comparaison d'algorithme (jsben.ch) : http://jsben.ch/5szy8
+
+Capture d'écran du test de comparaison d'algorithme (jsben.ch) : https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/capture_ecran-test_benchmark.pdf
 
 Site fonctionnel: https://stepheniki.github.io/Projet_7/
