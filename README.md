@@ -1,10 +1,10 @@
 ﻿Projet 7: Les petits plats
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Compétences évaluées: 
+ℹ️ Compétences évaluées: 
 - Analyser un problème informatique
 - Développer un algorithme pour résoudre un problème
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Ces points doivent absolument être respectés durant le développement :
+ℹ️ Ces points doivent absolument être respectés durant le développement :
 
 1. La recherche doit pouvoir se faire via le champ principal ou via les tags (ingrédients,
 ustensiles ou appareil)
@@ -22,19 +22,20 @@ Bootstrap) devra passer avec succès le validateur W3C.
 8. Aucune librairie ne sera utilisée pour le JavaScript du moteur de recherche
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Code avec algorithme version 1 (retenue) : https://github.com/stepheniki/p7-Stephen_Thomas 
+📁 Code avec algorithme version 1 (retenue) : https://github.com/stepheniki/p7-Stephen_Thomas 
 
-Code avec algorithme version 2 (non retenue) : https://github.com/stepheniki/p7-Stephen_Thomas/tree/Algorithme-version-2 
+📁 Code avec algorithme version 2 (non retenue) : https://github.com/stepheniki/p7-Stephen_Thomas/tree/Algorithme-version-2 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Fichiers de recherche (version pdf):
-Algorigramme de recherche: https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/algorithme%20de%20recherche.pdf
+ℹ️ Fichiers de recherche (version pdf):
 
-Fiche d'investigation de fonctionnalité (pdf): https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/fiche%20investigation%20et%20fonctionnalit%C3%A9.pdf
+📁 Algorigramme de recherche: https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/algorithme%20de%20recherche.pdf
 
-Test de comparaison d'algorithme (jsben.ch) : http://jsben.ch/5szy8
+📁 Fiche d'investigation de fonctionnalité (pdf): https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/fiche%20investigation%20et%20fonctionnalit%C3%A9.pdf
 
-Capture d'écran du test de comparaison d'algorithme (jsben.ch) : https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/capture_ecran-test_benchmark.pdf
+📁 Test de comparaison d'algorithme (jsben.ch) : http://jsben.ch/5szy8
 
-Site fonctionnel: https://stepheniki.github.io/Projet_7/
+📁 Capture d'écran du test de comparaison d'algorithme (jsben.ch) : https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/capture_ecran-test_benchmark.pdf
+
+ℹ️ Site fonctionnel: https://stepheniki.github.io/Projet_7/
