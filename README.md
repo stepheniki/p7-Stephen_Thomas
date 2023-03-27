@@ -21,7 +21,7 @@ fois de la coco et du chocolat.
 Bootstrap) devra passer avec succès le validateur W3C.
 8. Aucune librairie ne sera utilisée pour le JavaScript du moteur de recherche
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Code avec algorithme version 1 (retenue) : https://github.com/stepheniki/p7-Stephen_Thomas
+Code avec algorithme version 1 (retenue) : https://github.com/stepheniki/p7-Stephen_Thomas 
 
 Code avec algorithme version 2 (non retenue) : https://github.com/stepheniki/p7-Stephen_Thomas/tree/Algorithme-version-2
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
