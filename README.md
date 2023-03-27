@@ -38,4 +38,4 @@ Bootstrap) devra passer avec succès le validateur W3C.
 
 📁 Capture d'écran du test de comparaison d'algorithme (jsben.ch) : https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/capture_ecran-test_benchmark.pdf
 
-ℹ️ Site fonctionnel: https://stepheniki.github.io/Projet_7/
+ℹ️ Site fonctionnel: https://stepheniki.github.io/p7-Stephen_Thomas/
