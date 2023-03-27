@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les petits plats</title>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com">
+    <link href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Page logo -->
+    <link rel="icon" type="image/png" href="assets/logos/icon-logo.png" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="./assets/logos/icon-logo.png">
+        <h1 class="header-title">Les petits plats</h1>
+    </header>
+
+    <!-- Barre de recherche principale -->
+    <main>
+        <section class="main-style">
+            <div class="principal-search-container">
+                <input type="text" id="principal_search-bar" placeholder="Rechercher une recette">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <p class="search_error"><i class="fa-solid fa-warning"></i> Veuillez entrer au moins trois lettres </p>
+            <p class="search_error_recipe"></p>
+            <p class="total"></p>
+        </section>
+
+
+        <!-- tags -->
+        <section class="tags-section"></section>
+
+        <!-- Barre de recherche ingredients -->
+        <section class="main-section dropdown-menu dropdown-container">
+            <div class="dropdown-menu_ingredients">
+                <div class="blue-style">
+
+                    <input type="text" class="dropdown-menu" placeholder="Rechercher un ingrédient" name="Ingrédients"
+                        value="Ingrédients" id="sort-by-ingredients">
+                    <label for="sort-by-ingredients" class="dropdown-sort-icon ingredients-icon"><i
+                            class="open-ingredient-button  fa-solid fa-chevron-down"></i>
+                        <i class="close-ingredient-button fa-solid fa-chevron-up"></i>
+                    </label>
+                </div>
+                <div class="ingredients-section">
+                    <ul class="tag_list"></ul>
+                </div>
+            </div>
+
+            <!-- Barre de recherche appareils -->
+            <div class="dropdown-menu_appareils">
+                <div class="green-style">
+                    <input type="text" class="dropdown-menu" placeholder="Rechercher un appareil" value="Appareils"
+                        name="Appareils" id="sort-by-appareils">
+                    <label for="sort-by-appareils" class="dropdown-sort-icon">
+                        <i class="open-devices-button fa-solid fa-chevron-down"></i>
+                        <i class="close-devices-button fa-solid fa-chevron-up"></i>
+                    </label>
+                </div>
+                <div class="appareils-section">
+                    <ul class="tag_list"></ul>
+                </div>
+            </div>
+
+            <!-- Barre de recherche ustensils -->
+            <div class="dropdown-menu_ustensils">
+                <div class="orange-style"><input type="text" class="dropdown-menu" placeholder="Rechercher un ustensile"
+                        value="Ustensiles" name="Ustensiles" id="sort-by-ustensils">
+                    <label for="sort-by-ustensils" class="dropdown-sort-icon">
+                        <i class="open-ustensils-button fa-solid fa-chevron-down"></i>
+                        <i class="close-ustensils-button fa-solid fa-chevron-up"></i>
+                    </label>
+                </div>
+                <div class="ustensils-section">
+                    <ul class="tag_list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Affichage de toutes les recettes -->
+        <section class="recipes-section">
+        </section>
+    </main>
+
+    <!-- importation des scripts   -->
+    <script src="https://kit.fontawesome.com/db18982c9e.js" crossorigin="anonymous"></script>
+    <script src="scripts/recipes.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/tags.js"></script>
+    <script src="scripts/global-search.js"></script>
+
+    <script src="scripts/tags-search.js"></script>
+
+
+</body>
+
+</html>
