@@ -22,7 +22,6 @@ function globalSearch() {
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
                 document.querySelector('.total').style.display = "block"
                 document.querySelector('.search_error_recipe').style.display = "none"
-
             }
 
             // Recherche du texte tapé dans les ingredients des recettes
@@ -35,9 +34,9 @@ function globalSearch() {
                     document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
                     document.querySelector('.total').style.display = "block"
                     document.querySelector('.search_error_recipe').style.display = "none"
-
                 }
             }
+
             // Recherche du texte tapé dans la description des recettes
             let description = recipes[i].description
             if (description.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tappées sont trouvées dans la description...
@@ -70,7 +69,6 @@ searchInput.addEventListener('input', function () {
     if (searchInput.value.length > 2) { // Si au moins 3 lettres tapées, le tri se fait...
         globalSearch()
 
-
     } else if (searchInput.value.length == 0) {
         document.querySelector('.search_error').style.display = "none"
         document.querySelector('.total').style.display = "none"
@@ -82,8 +80,6 @@ searchInput.addEventListener('input', function () {
         document.querySelector('.search_error_recipe').style.display = "none"
 
     }
-
-
 })
 
 document.querySelector('.total').style.display = "none"
