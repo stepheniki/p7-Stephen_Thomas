@@ -15,6 +15,8 @@ function displayLists(listRecipes) { // Créer tableaux
     const ustensilsArray = []
 
     ingredientsList.innerHTML = ""
+    devicesList.innerHTML = ""
+    ustensilsList.innerHTML = ""
 
     // Affichage des ingredients --------------------------------------------------------
     listRecipes.forEach((recipe) => {
@@ -43,7 +45,7 @@ function displayLists(listRecipes) { // Créer tableaux
         // Affichage des appareils ----------------------------------------------------------
         const devices = recipe.appliance
         devicesArray.push(`<li class="device_tag element">${devices}</li>`)
-        devicesList.style.display = "none" // Le tableau n'est pas affiché
+        //.style.display = "grid" // Le tableau n'est pas affiché
         document.querySelector(".close-devices-button").style.display = "none" // l'icone de fermeture est masqué
 
         document.querySelector('.open-devices-button').addEventListener('click', e => { // quand on clique sur l'icone d'ouverture
@@ -63,7 +65,7 @@ function displayLists(listRecipes) { // Créer tableaux
         const ustensils = recipe.ustensils
         ustensils.forEach((ustensil) => {
             ustensilsArray.push(`<li class="ustensil_tag element">${ustensil}</li>`)
-            ustensilsList.style.display = "none" // Le tableau n'est pas affiché
+            //ustensilsList.style.display = "grid" // Le tableau n'est pas affiché
             document.querySelector(".close-ustensils-button").style.display = "none" // l'icone de fermeture est masqué
         })
         document.querySelector('.open-ustensils-button').addEventListener('click', e => { // quand on clique sur l'icone d'ouverture
