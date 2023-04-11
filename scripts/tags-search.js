@@ -27,6 +27,8 @@ ingredientInput.addEventListener('keyup', function (e) {
 // Au clic sur "ingrédients", 
 ingredientInput.addEventListener('click', () => {
     ingredientInput.value = ""
+    document.querySelector('.close-ingredient-button').style.display = "grid"
+
 })
 
 document.querySelector('.close-ingredient-button').addEventListener('click', (e) => { // quand on clique sur l'icone de fermeture
@@ -64,6 +66,8 @@ devicesInput.addEventListener('keyup', function (e) {
 // Au clic sur "appareils", 
 devicesInput.addEventListener('click', () => {
     devicesInput.value = "" // "rechercher un appareil" s'affiche
+    document.querySelector('.close-devices-button').style.display = "grid"
+
 })
 
 document.querySelector('.close-devices-button').addEventListener('click', (e) => { // quand on clique sur l'icone de fermeture
@@ -101,6 +105,8 @@ ustensilsInput.addEventListener('keyup', function (e) {
 // Au clic sur "ustensils", 
 ustensilsInput.addEventListener('click', () => {
     ustensilsInput.value = "" // "rechercher un ustensile" s'affiche
+    document.querySelector('.close-ustensils-button').style.display = "grid"
+
 })
 
 document.querySelector('.close-ustensils-button').addEventListener('click', (e) => { // quand on clique sur l'icone de fermeture

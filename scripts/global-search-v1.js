@@ -56,7 +56,10 @@ function globalSearch() {
         }
 
         let inputUniqueArray = [...new Set(inputArray)]; // Afficher tableau sans les doublons
+
         displayRecipe(inputUniqueArray) // Affichage des recettes dans ce nouveau tableau
+        displayLists(inputUniqueArray)
+        tagsListener()
     }
 }
 
@@ -80,6 +83,9 @@ searchInput.addEventListener('input', function () {
         document.querySelector('.search_error_recipe').style.display = "none"
 
     }
+
 })
 
 document.querySelector('.total').style.display = "none"
+
+
