@@ -71,7 +71,7 @@ function displayLists(listRecipes) { // Créer tableaux
         const ustensils = recipe.ustensils
 
         ustensils.forEach((ustensil) => {
-            if (!tagNames.includes(ustensils)) {
+            if (!tagNames.includes(ustensil)) {
                 ustensilsArray.push(`<li class="ustensil_tag element">${ustensil}</li>`)
             }
 
@@ -235,7 +235,6 @@ function tagsListener() {
             deviceDiv.classList.add('devices-tags', 'tags')
             deviceDiv.innerHTML = `<p>${e.target.innerText}</p><i class="devices-close fa-regular fa-circle-xmark"></i>`
             tagSection.appendChild(deviceDiv) //  le tag apparait
-            devicesSection.removeChild(devicesElement) // l'élément disparait du tableau des appareils
 
             // au clic sur la croix, le tag de l'appareil disparait
             document.querySelectorAll(".devices-close").forEach(deviceClose => {
@@ -266,7 +265,6 @@ function tagsListener() {
             ustensilDiv.classList.add('ustensils-tags', 'tags')
             ustensilDiv.innerHTML = `<p>${e.target.innerText}</p><i class="ustensils-close fa-regular fa-circle-xmark"></i>`
             tagSection.appendChild(ustensilDiv) // le tag apparait
-            ustensilsSection.removeChild(ustensilsElement) // l'élément disparait du tableau des ustensiles
 
             // au clic sur la croix, le tag de l'ingredient disparait
             document.querySelectorAll(".ustensils-close").forEach(ustensilClose => {
