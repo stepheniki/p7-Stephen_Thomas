@@ -248,11 +248,12 @@ function tagsListener() {
                     tagNames.splice(tagIndex, 1)
                     tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
                 })
-                tagsArray.push("device_" + e.target.innerText) // ajout des tags "appareils" dans le tableau des tags
-                tagNames.push(e.target.innerText)
-                tagsFiltered(tagsArray)
 
             })
+            tagsArray.push("device_" + e.target.innerText) // ajout des tags "appareils" dans le tableau des tags
+            tagNames.push(e.target.innerText)
+            tagsFiltered(tagsArray)
+
         })
     })
 
@@ -279,11 +280,11 @@ function tagsListener() {
                     tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
                 })
 
-                tagsArray.push("ustensil_" + e.target.innerText)  // ajout des tags "ustensiles" dans le tableau des tags
-                tagNames.push(e.target.innerText)
-                tagsFiltered(tagsArray)
-            })
 
+            })
+            tagsArray.push("ustensil_" + e.target.innerText)  // ajout des tags "ustensiles" dans le tableau des tags
+            tagNames.push(e.target.innerText)
+            tagsFiltered(tagsArray)
         })
     })
 
