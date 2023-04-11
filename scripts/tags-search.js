@@ -28,6 +28,7 @@ ingredientInput.addEventListener('keyup', function (e) {
 ingredientInput.addEventListener('click', () => {
     ingredientInput.value = ""
     document.querySelector('.close-ingredient-button').style.display = "grid"
+    document.querySelector('.open-ingredient-button').style.display = "none"
 
 })
 
@@ -67,6 +68,7 @@ devicesInput.addEventListener('keyup', function (e) {
 devicesInput.addEventListener('click', () => {
     devicesInput.value = "" // "rechercher un appareil" s'affiche
     document.querySelector('.close-devices-button').style.display = "grid"
+    document.querySelector('.open-devices-button').style.display = "none"
 
 })
 
@@ -106,6 +108,7 @@ ustensilsInput.addEventListener('keyup', function (e) {
 ustensilsInput.addEventListener('click', () => {
     ustensilsInput.value = "" // "rechercher un ustensile" s'affiche
     document.querySelector('.close-ustensils-button').style.display = "grid"
+    document.querySelector('.open-ustensils-button').style.display = "none"
 
 })
 
