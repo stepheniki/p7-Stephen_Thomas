@@ -14,6 +14,7 @@ function displayLists(listRecipes) { // Créer tableaux
     let ustensilsList = document.querySelector(".ustensils-section")
     const ustensilsArray = []
 
+
     ingredientsList.innerHTML = ""
     devicesList.innerHTML = ""
     ustensilsList.innerHTML = ""
@@ -24,7 +25,8 @@ function displayLists(listRecipes) { // Créer tableaux
 
         ingredients.forEach((ingredient) => {
             let ingredientsTab = ingredient.ingredient
-            if (!tagNames.includes(ingredientsTab)) {
+
+            if (!tagNames.includes(ingredientsTab.toLowerCase())) {
                 ingredientsArray.push(`<li class="ingredient_tag element">${ingredientsTab.toLowerCase()}</li>`)
             }
 
@@ -47,7 +49,7 @@ function displayLists(listRecipes) { // Créer tableaux
 
         // Affichage des appareils ----------------------------------------------------------
         const devices = recipe.appliance
-        if (!tagNames.includes(devices)) {
+        if (!tagNames.includes(devices.toLowerCase())) {
             devicesArray.push(`<li class="device_tag element">${devices}</li>`)
         }
 
@@ -71,7 +73,7 @@ function displayLists(listRecipes) { // Créer tableaux
         const ustensils = recipe.ustensils
 
         ustensils.forEach((ustensil) => {
-            if (!tagNames.includes(ustensil)) {
+            if (!tagNames.includes(ustensil.toLowerCase())) {
                 ustensilsArray.push(`<li class="ustensil_tag element">${ustensil}</li>`)
             }
 
@@ -103,6 +105,34 @@ function displayLists(listRecipes) { // Créer tableaux
 
     let newUstensilsList = [...new Set(ustensilsArray)];
     ustensilsList.innerHTML += `${newUstensilsList.join("")}`
+
+
+    // si liste des ingrédients est vide, alors la section disparait
+    if (document.querySelectorAll(".ingredient_tag").length == 0) {
+        document.querySelector(".ingredients-section").style.display = "none"
+    }
+
+    else {
+        document.querySelector(".ingredients-section").style.display = "grid"
+    }
+    // si liste des appareils est vide, alors la section disparait
+    if (document.querySelectorAll(".device_tag").length == 0) {
+        document.querySelector(".appareils-section").style.display = "none"
+    }
+    else {
+        document.querySelector(".appareils-section").style.display = "grid"
+    }
+
+    // si liste des ustensiles est vide, alors la section disparait
+    if (document.querySelectorAll(".ustensil_tag").length == 0) {
+        document.querySelector(".ustensils-section").style.display = "none"
+    }
+    else {
+        document.querySelector(".ustensils-section").style.display = "grid"
+    }
+
+
+
 }
 
 // Afficher les listes
@@ -196,31 +226,34 @@ function tagsListener() {
     // INGREDIENTS ..........................................
     // au clic sur un ingrédient, celui-ci apparait en tag
     document.querySelectorAll(".ingredient_tag").forEach(ingredientElement => {
-
         ingredientElement.addEventListener('click', e => {
-
 
             const ingredientDiv = document.createElement('div')
             ingredientDiv.classList.add('ingredients-tags', 'tags')
             ingredientDiv.innerHTML = `<p>${e.target.innerText}</p><i class="ingredients-close fa-regular fa-circle-xmark"></i>`
             tagSection.appendChild(ingredientDiv) // le tag apparait
+            let ingredientClose = ingredientDiv.querySelector(".ingredients-close")
 
             // au clic sur la croix, le tag de l'ingredient disparait
-            document.querySelectorAll(".ingredients-close").forEach(ingredientClose => {
+            ingredientClose.addEventListener('click', e => {
+                const tagText = e.target.previousSibling.textContent.trim();
+                //récupère le texte du tag "ingrédient" qui vient juste avant la croix et stocke dans la variable "tagText".
 
-                ingredientClose.addEventListener('click', e => {
-                    const tagText = e.target.previousSibling.textContent.trim(); //récupère le texte du tag "ingrédient" qui vient juste avant la croix et stocke dans la variable "tagText".
-                    e.target.closest('div').remove() // le tag disparait de la section des tags
-                    ingredientSection.appendChild(ingredientElement) // le tag se rajoute à la liste des ingrédients
-                    const tagIndex = tagsArray.indexOf("ingredient_" + tagText) // chercher l'index du tag "ingrédient" dans le tableau "tagsArray" et le retire du tableau
-                    tagsArray.splice(tagIndex, 1) // mettre à jour le tableau "tagsArray" sans le tag qui vient d'être supprimé.
-                    tagNames.splice(tagIndex, 1)
-                    tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
-                })
+                e.target.closest('div').remove() // le tag disparait de la section des tags
+                ingredientSection.appendChild(ingredientElement) // le tag se rajoute à la liste des ingrédients
+                const tagIndex = tagsArray.indexOf("ingredient_" + tagText) // chercher l'index du tag "ingrédient" dans le tableau "tagsArray" et le retire du tableau
+
+                tagsArray.splice(tagIndex, 1) // mettre à jour le tableau "tagsArray" sans le tag qui vient d'être supprimé.
+                tagNames.splice(tagIndex, 1)
+                tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
             })
+
             tagsArray.push("ingredient_" + e.target.innerText) // ajout des tags "ingredients" dans le tableau des tags
-            tagNames.push(e.target.innerText)
+            tagNames.push(e.target.innerText.toLowerCase())
             tagsFiltered(tagsArray)
+            document.querySelector(".close-ingredient-button").style.display = "block" // l'icone de fermeture apparait
+            document.querySelector(".open-ingredient-button").style.display = "none" // l'icone d'ouverture disparait
+
         })
     })
 
@@ -235,26 +268,30 @@ function tagsListener() {
             deviceDiv.classList.add('devices-tags', 'tags')
             deviceDiv.innerHTML = `<p>${e.target.innerText}</p><i class="devices-close fa-regular fa-circle-xmark"></i>`
             tagSection.appendChild(deviceDiv) //  le tag apparait
+            let deviceClose = deviceDiv.querySelector(".devices-close")
 
             // au clic sur la croix, le tag de l'appareil disparait
-            document.querySelectorAll(".devices-close").forEach(deviceClose => {
-                deviceClose.addEventListener('click', e => {
-                    const tagText = e.target.previousSibling.textContent.trim() //récupère le texte du tag "device" qui vient juste avant la croix et stocke dans la variable "tagText".
-                    e.target.closest('div').remove() // le tag disparait de la section des tags
-                    devicesSection.appendChild(devicesElement)          // l'appareil réapparait dans la liste des appareils
-                    const tagIndex = tagsArray.indexOf("device_" + tagText) // chercher l'index du tag "device" dans le tableau "tagsArray" et le retire du tableau
-                    tagsArray.splice(tagIndex, 1) // mettre à jour le tableau "tagsArray" sans le tag qui vient d'être supprimé.
-                    tagNames.splice(tagIndex, 1)
-                    tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
-                })
+            deviceClose.addEventListener('click', e => {
+                const tagText = e.target.previousSibling.textContent.trim()
+                //récupère le texte du tag "device" qui vient juste avant la croix et stocke dans la variable "tagText".
 
+                e.target.closest('div').remove() // le tag disparait de la section des tags
+                devicesSection.appendChild(devicesElement)          // l'appareil réapparait dans la liste des appareils
+                const tagIndex = tagsArray.indexOf("device_" + tagText) // chercher l'index du tag "device" dans le tableau "tagsArray" et le retire du tableau
+
+                tagsArray.splice(tagIndex, 1) // mettre à jour le tableau "tagsArray" sans le tag qui vient d'être supprimé.
+                tagNames.splice(tagIndex, 1)
+                tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
             })
             tagsArray.push("device_" + e.target.innerText) // ajout des tags "appareils" dans le tableau des tags
-            tagNames.push(e.target.innerText)
+            tagNames.push(e.target.innerText.toLowerCase())
             tagsFiltered(tagsArray)
+            document.querySelector(".close-devices-button").style.display = "block" // l'icone de fermeture apparait
+            document.querySelector(".open-devices-button").style.display = "none" // l'icone d'ouverture disparait
 
         })
     })
+
 
     // USTENSILS..........................................
     // au clic sur un ustensile, celui-ci apparait en tag
@@ -265,29 +302,35 @@ function tagsListener() {
             ustensilDiv.classList.add('ustensils-tags', 'tags')
             ustensilDiv.innerHTML = `<p>${e.target.innerText}</p><i class="ustensils-close fa-regular fa-circle-xmark"></i>`
             tagSection.appendChild(ustensilDiv) // le tag apparait
+            let ustensilClose = ustensilDiv.querySelector(".ustensils-close")
 
             // au clic sur la croix, le tag de l'ingredient disparait
-            document.querySelectorAll(".ustensils-close").forEach(ustensilClose => {
-                ustensilClose.addEventListener('click', e => {
-                    const tagText = e.target.previousSibling.textContent.trim() //récupère le texte du tag "device" qui vient juste avant la croix et stocke dans la variable "tagText".
-                    e.target.closest('div').remove() // le tag disparait de la section des tags
-                    ustensilsSection.appendChild(ustensilsElement)          // l'ustensile  réapparait dans la liste des ustensiles
-                    const tagIndex = tagsArray.indexOf("ustensil_" + tagText) // chercher l'index du tag "device" dans le tableau "tagsArray" et le retire du tableau
-                    tagsArray.splice(tagIndex, 1) // mettre à jour le tableau "tagsArray" sans le tag qui vient d'être supprimé.
-                    tagNames.splice(tagIndex, 1)
-                    tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
-                })
+            ustensilClose.addEventListener('click', e => {
+                const tagText = e.target.previousSibling.textContent.trim()
+                //récupère le texte du tag "device" qui vient juste avant la croix et stocke dans la variable "tagText".
 
+                e.target.closest('div').remove() // le tag disparait de la section des tags
+                ustensilsSection.appendChild(ustensilsElement)          // l'ustensile  réapparait dans la liste des ustensiles
+                const tagIndex = tagsArray.indexOf("ustensil_" + tagText) // chercher l'index du tag "device" dans le tableau "tagsArray" et le retire du tableau
 
+                tagsArray.splice(tagIndex, 1) // mettre à jour le tableau "tagsArray" sans le tag qui vient d'être supprimé.
+                tagNames.splice(tagIndex, 1)
+                tagsFiltered(tagsArray) // Afficher les recettes en fonction des tags restants
             })
+
             tagsArray.push("ustensil_" + e.target.innerText)  // ajout des tags "ustensiles" dans le tableau des tags
-            tagNames.push(e.target.innerText)
+            tagNames.push(e.target.innerText.toLowerCase())
             tagsFiltered(tagsArray)
+            document.querySelector(".close-ustensils-button").style.display = "block" // l'icone de fermeture apparait
+            document.querySelector(".open-ustensils-button").style.display = "none" // l'icone de ouverture disparait
+
         })
     })
-
-
 }
+
+document.querySelector(".ingredients-section").style.display = "none"
+document.querySelector(".appareils-section").style.display = "none"
+document.querySelector(".ustensils-section").style.display = "none"
 
 
 tagsListener()
