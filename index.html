@@ -8,29 +8,29 @@
     <title>Les petits plats</title>
 
     <!-- Css -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com">
-    <link href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="fonts">
+    <link href="https://fonts.gstatic.com" crossorigin rel="fonts">
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=DM+Sans:wght@400;500;700&display=swap"
         rel="stylesheet">
 
     <!-- Page logo -->
-    <link rel="icon" type="image/png" href="assets/logos/icon-logo.png" />
+    <link rel="icon" type="image/png" href="assets/logos/icon-logo.png">
 </head>
 
 <body>
     <!-- Header -->
     <header class="header">
-        <img src="./assets/logos/icon-logo.png">
+        <img src="./assets/logos/icon-logo.png" alt="logo image">
         <h1 class="header-title">Les petits plats</h1>
     </header>
 
     <!-- Barre de recherche principale -->
     <main>
-        <section class="main-style">
+        <div class="main-style">
             <div class="principal-search-container">
                 <input type="text" id="principal_search-bar" placeholder="Rechercher une recette">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -38,14 +38,14 @@
             <p class="search_error"><i class="fa-solid fa-warning"></i> Veuillez entrer au moins trois lettres </p>
             <p class="search_error_recipe"></p>
             <p class="total"></p>
-        </section>
+        </div>
 
 
         <!-- tags -->
-        <section class="tags-section"></section>
+        <div class="tags-section"></div>
 
         <!-- Barre de recherche ingredients -->
-        <section class="main-section dropdown-menu dropdown-container">
+        <div class="main-section dropdown-menu dropdown-container">
             <div class="dropdown-menu_ingredients">
                 <div class="blue-style">
 
@@ -89,11 +89,11 @@
                     <ul class="tag_list"></ul>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Affichage de toutes les recettes -->
-        <section class="recipes-section">
-        </section>
+        <div class="recipes-section">
+        </div>
     </main>
 
     <!-- importation des scripts   -->
