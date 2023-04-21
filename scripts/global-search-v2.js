@@ -34,15 +34,17 @@ function globalSearch() {
                 document.querySelector('.total').style.display = "block"
             }
 
-        // Afficher message erreur quand aucune recette trouvée
-        if (inputArray.length === 0) {
-            document.querySelector('.total').style.display = "none";
-            document.querySelector('.search_error_recipe').style.display = "block";
-            document.querySelector('.search_error_recipe').innerHTML = "Aucune recette trouvée ! Essayez 'tarte aux pommes' ou 'poisson' par exemple...";
-        }
+            // Afficher message erreur quand aucune recette trouvée
+            if (inputArray.length === 0) {
+                document.querySelector('.total').style.display = "none";
+                document.querySelector('.search_error_recipe').style.display = "block";
+                document.querySelector('.search_error_recipe').innerHTML = "Aucune recette trouvée ! Essayez 'tarte aux pommes' ou 'poisson' par exemple...";
+            }
 
             let inputUniqueArray = [...new Set(inputArray)]; // Afficher tableau sans les doublons
             displayRecipe(inputUniqueArray) // Affichage des recettes dans ce nouveau tableau
+            displayLists(inputUniqueArray)
+            tagsListener()
         })
     }
 }
