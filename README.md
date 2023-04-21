@@ -34,7 +34,7 @@ Bootstrap) devra passer avec succès le validateur W3C.
 
 📁 Fiche d'investigation de fonctionnalité (pdf): https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/fiche%20investigation%20et%20fonctionnalit%C3%A9.pdf
 
-📁 Test de comparaison d'algorithme (jsben.ch) : http://jsben.ch/5szy8
+📁 Test de comparaison d'algorithme (jsben.ch) : https://jsben.ch/mEZxo
 
 📁 Capture d'écran du test de comparaison d'algorithme (jsben.ch) : https://github.com/stepheniki/p7-Stephen_Thomas/blob/main/recherche/capture_ecran-test_benchmark.pdf
 
