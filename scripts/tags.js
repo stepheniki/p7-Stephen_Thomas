@@ -130,9 +130,6 @@ function displayLists(listRecipes) { // Créer tableaux
     else {
         document.querySelector(".ustensils-section").style.display = "grid"
     }
-
-
-
 }
 
 // Afficher les listes
@@ -143,35 +140,40 @@ displayLists(recipes)
 /* ------------------------------------   Tri des recettes avec les tags   -------------------------------------------*/
 /************************************************************************************************************************************** */
 
-const tagsArray = [] // création tableau de tag vide
+const tagsArray = [] // création d'un tableau vide pour stocker les tags ajoutés
 
-function tagsFiltered(tagsArray) {
-    const newArray = []; // Création d'un tableau vide
+function tagsFiltered(tagsArray) { // fonction appellée chaque fois qu'on recherche une recette
+    const newArray = []; // Création d'un tableau vide pour stocker les recettes qui correspondent aux tags
 
     recipes.forEach((recipe) => { // Boucle pour chaque recette...
-        let displayTags = true; // Création d'un booléen initialisé à "true"
+        let displayTags = true; // Création d'un booléen initialisé à "true", 
 
         tagsArray.forEach((tag) => { // Boucle pour chaque tag qui va dans le tableau des tags
             const tagSplit = tag.split("_"); // On sépare la catégorie + nom de l'ingrédient
 
             if (tagSplit[0] == "ingredient") { //tri par ingrédient 
+
+                // Une boucle "some" vérifie si l'ingrédient correspondant se trouve dans la liste des ingrédients de la recette
                 const ingredientFound = recipe.ingredients.some((ingredient) => {
                     return tagSplit[1].toLowerCase() == ingredient.ingredient.toLowerCase();
                 });
                 if (!ingredientFound) {
-                    displayTags = false; // un tag n'est pas trouvé, on passe à false
+                    displayTags = false; // l'ingredient n'est pas trouvé, on passe à false
                 }
 
             } else if (tagSplit[0] == "ustensil") { //tri par ustensile 
+                // Une boucle "some" vérifie si l'ustensile correspondant se trouve dans la liste des ustensiles de la recette
                 const ustensilFound = recipe.ustensils.some((ustensil) => {
                     return tagSplit[1].toLowerCase() == ustensil.toLowerCase();
                 });
                 if (!ustensilFound) {
-                    displayTags = false; // un tag n'est pas trouvé, on passe à false
+                    displayTags = false; // l'ustensile n'est pas trouvé, on passe à false
                 }
-            } else if (tagSplit[0] == "device") { //tri par appareil 
+
+            } else if (tagSplit[0] == "device") { //tri par appareil
+                // Une boucle "some" vérifie si l'appareil correspondant se trouve dans la liste des appareils de la recette
                 if (tagSplit[1].toLowerCase() != recipe.appliance.toLowerCase()) {
-                    displayTags = false; // un tag n'est pas trouvé, on passe à false
+                    displayTags = false; // l'appareil n'est pas trouvé, on passe à false
                 }
             }
         });
@@ -183,7 +185,7 @@ function tagsFiltered(tagsArray) {
     });
 
     if (newArray.length === 0) {
-        // Aucune recette trouvée, afficher un message
+        // Si la longueur est 0, cela signifie qu'aucune recette n'a été trouvée et un message d'erreur est affiché
         document.querySelector(".search_error_recipe").innerHTML = "<p>Aucune recette trouvée...</p>";
         document.querySelector(".search_error_recipe").style.display = "block"
         document.querySelector(".recipes-section").style.display = "none"
@@ -200,8 +202,15 @@ function tagsFiltered(tagsArray) {
         document.querySelector('.total').style.display = "block"
 
     }
-    displayLists(newArray)
-    tagsListener()
+    displayLists(newArray) //afficher les listes déroulantes de tags
+    tagsListener() //  ajouter des écouteurs d'événements pour les tags sélectionnés
+
+
+
+
+
+
+
 }
 
 

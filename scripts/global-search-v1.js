@@ -16,7 +16,7 @@ function globalSearch() {
 
             // Recherche du texte tapé dans les noms de recettes
             let names = recipes[i].name
-            if (names.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tappées sont trouvées dans le nom de la recette...
+            if (names.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tapées sont trouvées dans le nom de la recette...
                 inputArray.push(recipes[i])
                 displaySort = true  // Affichage des résultats triés
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
@@ -28,7 +28,7 @@ function globalSearch() {
             let ingredients = recipes[i].ingredients
             for (let j = 0; j < ingredients.length; j++) {
                 let ingredientsList = ingredients[j].ingredient // recherche dans ingredients de la liste d'ingredients
-                if (ingredientsList.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tappées sont trouvées dans le nom des ingredients...
+                if (ingredientsList.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tapées sont trouvées dans le nom des ingredients...
                     inputArray.push(recipes[i])
                     displaySort = true // Affichage des résultats triés
                     document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
@@ -39,7 +39,7 @@ function globalSearch() {
 
             // Recherche du texte tapé dans la description des recettes
             let description = recipes[i].description
-            if (description.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tappées sont trouvées dans la description...
+            if (description.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tapées sont trouvées dans la description...
                 inputArray.push(recipes[i])
                 displaySort = true // Affichage des résultats triés
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
