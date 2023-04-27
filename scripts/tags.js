@@ -2,7 +2,7 @@
 //                              Afficher listes des tags "ingredients", "appareils" et "ustensiles"  
 // *******************************************************************************************************************
 const tagNames = []
-
+// Affichage des tags disponibles d'ingrédients, appareils et ustensiles.
 function displayLists(listRecipes) { // Créer tableaux
 
     let ingredientsList = document.querySelector(".ingredients-section")
@@ -142,6 +142,7 @@ displayLists(recipes)
 
 const tagsArray = [] // création d'un tableau vide pour stocker les tags ajoutés
 
+// Trier les recettes en fonction des tags ajoutés ou supprimés.
 function tagsFiltered(tagsArray) { // fonction appellée chaque fois qu'on recherche une recette
     const newArray = []; // Création d'un tableau vide pour stocker les recettes qui correspondent aux tags
 
@@ -218,6 +219,7 @@ function tagsFiltered(tagsArray) { // fonction appellée chaque fois qu'on reche
 /************************************************************************************************************************************** */
 /* -----------------------------------------  AFFICHAGE DES TAGS   ---------------------------------------------------------------------*/
 /****************************************************************************************************************************************/
+// Gestion des événements d'ajout ou suppression des tags.
 function tagsListener() {
     let tagSection = document.querySelector(".tags-section")  // section des tags "ingredients"
 

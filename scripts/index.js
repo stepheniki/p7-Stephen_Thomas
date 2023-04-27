@@ -1,5 +1,6 @@
 // ---------------------------   Affichage des recettes  ------------------------------------------------------------
 
+// prend un tableau de recettes en argument et les affiche dans la page.
 function displayRecipe(recipesArray) {
     const cardsSection = document.querySelector('.recipes-section');
     cardsSection.innerHTML = "";
@@ -12,6 +13,9 @@ function displayRecipe(recipesArray) {
 }
 displayRecipe(recipes);
 
+
+// Crée un modèle de recette en affichant les données du fichier recipes.js, chacun ayant une id, un titre, une description et une liste d'ingrédients. 
+//GetRecipeCardDOM est une fonction interne de représentation DOM qui crée un élément d’article avec les classes et l’id appropriés, puis renvoie cet élément. 
 // Affichage des données du fichier recipes.js
 function recipesFactory(data) {
     const { id, name, time, description, unit } = data;

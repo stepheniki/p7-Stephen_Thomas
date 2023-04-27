@@ -1,7 +1,7 @@
 /************************************************************************************************************************************** */
 /* ------------------------------------   Barre de recherche tags "ingrédients"   -------------------------------------------*/
 /************************************************************************************************************************************** */
-
+//chercher des ingrédients quand on tape le nom d'un ingrédient avec le clavier. Les tags qui correspondent à un ingrédient s'affichent.
 function ingredientSearch(e) {
 
     const ingredientList = document.querySelectorAll('.ingredient_tag')
@@ -41,7 +41,7 @@ document.querySelector('.close-ingredient-button').addEventListener('click', (e)
 /************************************************************************************************************************************** */
 /* ------------------------------------   Barre de recherche tags "appareils"   -------------------------------------------*/
 /************************************************************************************************************************************** */
-
+// chercher des appareils quand on tape le nom d'un appareil avec le clavier. Les tags qui correspondent à un appareil s'affichent.
 function devicesSearch(e) {
 
     const deviceList = document.querySelectorAll('.device_tag')
@@ -81,7 +81,7 @@ document.querySelector('.close-devices-button').addEventListener('click', (e) =>
 /************************************************************************************************************************************** */
 /* ------------------------------------   Barre de recherche tags "ustensiles"   -------------------------------------------*/
 /************************************************************************************************************************************** */
-
+// chercher des ustensiles quand on tape le nom d'un ustensile avec le clavier. Les tags qui correspondent à un ustensile s'affichent.
 function ustensilsSearch(e) {
 
     const ustensilList = document.querySelectorAll('.ustensil_tag')

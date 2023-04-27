@@ -1,6 +1,8 @@
 /************************************************************************************************************************************** */
 //                                          Barre de recherche principale  - Algorythme version 1 - Boucles natives "for"
 /************************************************************************************************************************************** */
+// Recherche globale en entrant au moins trois lettres dans la barre de recherche. 
+//Cela recherche les différentes recettes qui incluent le mot tapé dans la description, les ingrédients et le nom de la recette, puis affiche les recettes trouvées.
 
 function globalSearch() {
     const inputArray = [] // Création d'un tableau vide
