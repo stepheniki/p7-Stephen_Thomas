@@ -2,17 +2,30 @@
 /************************************************************************************************************************************** */
 //                                          Barre de recherche principale  - Algorythme version 2 - Boucles "foreach"
 /************************************************************************************************************************************** */
+function resetTagLists() {
+    const tagLists = document.querySelectorAll('.tag');
+    tagLists.forEach(list => {
+        list.innerHTML = '';
+    });
+}
+
 function globalSearch() {
+
+
+
     const inputArray = []
     let searchField = document.getElementById('principal_search-bar').value
-    if (searchField.length < 3) {
-        document.querySelector('.search_error').style.display = "block" // 
+    if (searchField.replace(/\s+/g, '').length < 3) { // Les espaces ne sont pas comptés comme des caractères, les supprimer de la chaîne de recherche avant de vérifier sa longueur
+        document.querySelector('.search_error').style.display = "block"
     } else {
         document.querySelector('.search_error').style.display = "none"
+
         recipes.forEach(recipe => { // Incrémentation de la valeur "letters" 
             let displaySort = false // Affichage du tri
             let names = recipe.name
-            if (names.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) {
+
+            let searchWord = searchField.toLowerCase().split(' ') // Diviser la chaîne de recherche en mots individuels 
+            if (searchWord.every(word => names.toLowerCase().includes(word)) && displaySort == false) {    // Si chaque mot est trouvé dans le nom de la recette...
                 inputArray.push(recipe)
                 displaySort = true  // Affichage des résultats triés
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées"
@@ -22,7 +35,8 @@ function globalSearch() {
             }
             recipe.ingredients.forEach(ingredient => {
                 let ingredientsList = ingredient.ingredient // recherche dans ingredients de la liste d'ingredients
-                if (ingredientsList.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) {
+                let searchWords = searchField.toLowerCase().split(' '); // Diviser la chaîne de recherche en mots individuels 
+                if (searchWords.every(word => ingredientsList.toLowerCase().includes(word)) && displaySort == false) { // Si chaque mot est trouvé dans le nom des ingredients...
                     inputArray.push(recipe)
                     displaySort = true // Affichage des résultats triés
                     document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
@@ -32,7 +46,8 @@ function globalSearch() {
                 }
             })
             let description = recipe.description
-            if (description.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) { // Si les lettres tappées sont trouvées dans la description...
+            let searchWords = searchField.toLowerCase().split(' '); // Diviser la chaîne de recherche en mots individuels 
+            if (searchWords.every(word => description.toLowerCase().includes(word)) && displaySort == false) { // Si chaque mot est trouvé dans la description...
                 inputArray.push(recipe)
                 displaySort = true // Affichage des résultats triés
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
@@ -60,23 +75,23 @@ function globalSearch() {
 const searchInput = document.getElementById('principal_search-bar');
 
 searchInput.addEventListener('input', function () {
+    // vérifier si le dernier caractère saisi est un espace avant d’appeler la fonction
+    if (searchInput.value.length > 2 && searchInput.value.slice(-1) !== ' ') {
+        globalSearch();
 
+    } else if (searchInput.value.length == 0) { // si pas de texte tapé
 
-    if (searchInput.value.length > 2) { // Si au moins 3 lettres tapées, le tri se fait...
-        globalSearch()
-
-    } else if (searchInput.value.length == 0) {
         document.querySelector('.search_error').style.display = "none"
         document.querySelector('.total').style.display = "none"
         document.querySelector('.search_error_recipe').style.display = "none"
+        tagsFiltered(tagsArray) // actualisation des listes
 
-    } else { // ... sinon message d'erreur
-        displayRecipe(recipes)
-        document.querySelector('.search_error').style.display = "block"
-        document.querySelector('.search_error_recipe').style.display = "none"
 
+    } else if (searchInput.value.slice(-1) !== ' ') { // si espace entre deux mots, empêche le message d'erreur
+        displayRecipe(recipes) // actualisation des listes
+        document.querySelector('.search_error').style.display = "block";
+        document.querySelector('.search_error_recipe').style.display = "none";
     }
-
 })
 
 document.querySelector('.total').style.display = "none"
