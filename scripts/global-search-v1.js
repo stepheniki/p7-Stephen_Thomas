@@ -81,7 +81,7 @@ searchInput.addEventListener('input', function () {
         globalSearch();
 
     } else if (searchInput.value.length == 0) {
-        displayLists(recipes) // actualisation des listes quand le texte est effacé
+        tagsFiltered(tagsArray) // actualisation des listes
         document.querySelector('.search_error').style.display = "none"
         document.querySelector('.total').style.display = "none"
         document.querySelector('.search_error_recipe').style.display = "none"
