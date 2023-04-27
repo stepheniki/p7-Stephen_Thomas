@@ -9,7 +9,8 @@ function globalSearch() {
         document.querySelector('.search_error').style.display = "block" // 
     } else {
         document.querySelector('.search_error').style.display = "none"
-        recipes.forEach(recipe => { // Incrémentation de la valeur "letters" 
+
+        recipes.forEach(recipe => {
             let displaySort = false // Affichage du tri
             let names = recipe.name
             if (names.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) {
@@ -18,6 +19,7 @@ function globalSearch() {
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées"
                 document.querySelector('.total').style.display = "block"
             }
+
             recipe.ingredients.forEach(ingredient => {
                 let ingredientsList = ingredient.ingredient // recherche dans ingredients de la liste d'ingredients
                 if (ingredientsList.toLowerCase().includes(searchField.toLowerCase()) && displaySort == false) {
