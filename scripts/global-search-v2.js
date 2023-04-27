@@ -17,6 +17,8 @@ function globalSearch() {
                 displaySort = true  // Affichage des résultats triés
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées"
                 document.querySelector('.total').style.display = "block"
+                document.querySelector('.search_error_recipe').style.display = "none"
+
             }
             recipe.ingredients.forEach(ingredient => {
                 let ingredientsList = ingredient.ingredient // recherche dans ingredients de la liste d'ingredients
@@ -25,6 +27,8 @@ function globalSearch() {
                     displaySort = true // Affichage des résultats triés
                     document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
                     document.querySelector('.total').style.display = "block"
+                    document.querySelector('.search_error_recipe').style.display = "none"
+
                 }
             })
             let description = recipe.description
@@ -33,6 +37,8 @@ function globalSearch() {
                 displaySort = true // Affichage des résultats triés
                 document.querySelector('.total').innerHTML = inputArray.length + " " + "recettes trouvées" // Afficher nombre de recettes
                 document.querySelector('.total').style.display = "block"
+                document.querySelector('.search_error_recipe').style.display = "none"
+
             }
 
             // Afficher message erreur quand aucune recette trouvée
