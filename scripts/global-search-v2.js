@@ -2,12 +2,6 @@
 /************************************************************************************************************************************** */
 //                                          Barre de recherche principale  - Algorythme version 2 - Boucles "foreach"
 /************************************************************************************************************************************** */
-function resetTagLists() {
-    const tagLists = document.querySelectorAll('.tag');
-    tagLists.forEach(list => {
-        list.innerHTML = '';
-    });
-}
 
 function globalSearch() {
 
