@@ -87,7 +87,7 @@ searchInput.addEventListener('input', function () {
         document.querySelector('.search_error_recipe').style.display = "none"
 
     } else if (searchInput.value.slice(-1) !== ' ') { // si espace entre deux mots, empêche le message d'erreur
-        displayRecipe(recipes) // actualisation des listes
+        displayRecipe(recipes) // actualisation des listes et recettes
         document.querySelector('.search_error').style.display = "block";
         document.querySelector('.search_error_recipe').style.display = "none";
     }
