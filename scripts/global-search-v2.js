@@ -52,7 +52,7 @@ function globalSearch() {
 
             // Afficher message erreur quand aucune recette trouvée
             if (inputArray.length === 0) {
-                document.querySelector('.total').style.display = "none";
+                document.querySelector('.total').style.display = "block";
                 document.querySelector('.search_error_recipe').style.display = "block";
                 document.querySelector('.search_error_recipe').innerHTML = "Aucune recette trouvée ! Essayez 'tarte aux pommes' ou 'poisson' par exemple...";
             }
@@ -76,7 +76,7 @@ searchInput.addEventListener('input', function () {
     } else if (searchInput.value.length == 0) { // si pas de texte tapé
 
         document.querySelector('.search_error').style.display = "none"
-        document.querySelector('.total').style.display = "none"
+        document.querySelector('.total').style.display = "block"
         document.querySelector('.search_error_recipe').style.display = "none"
         tagsFiltered(tagsArray) // actualisation des listes
 
@@ -88,4 +88,5 @@ searchInput.addEventListener('input', function () {
     }
 })
 
-document.querySelector('.total').style.display = "none"
+document.querySelector('.total').style.display = "block"
+document.querySelector('.total').innerHTML = recipes.length + " recettes trouvées"
