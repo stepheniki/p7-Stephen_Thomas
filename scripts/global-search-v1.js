@@ -10,8 +10,11 @@ function globalSearch() {
 
     if (searchField.replace(/\s+/g, '').length < 3) { // Les espaces ne sont pas comptés comme des caractères, les supprimer de la chaîne de recherche avant de vérifier sa longueur
         document.querySelector('.search_error').style.display = "block";
+
     } else {
         document.querySelector('.search_error').style.display = "none" // OU on tape plus de 3 lettres ... Message erreur disparait
+        document.querySelector('.total').style.display = "block"
+
 
 
         for (let i = 0; i < recipes.length; i++) { // Incrémentation de la valeur "letters" // passe sur chacune des recettes
@@ -59,7 +62,7 @@ function globalSearch() {
 
         // Afficher message erreur quand aucune recette trouvée
         if (inputArray.length === 0) {
-            document.querySelector('.total').style.display = "none";
+            document.querySelector('.total').style.display = "block";
             document.querySelector('.search_error_recipe').style.display = "block";
             document.querySelector('.search_error_recipe').innerHTML = "Aucune recette trouvée ! Essayez 'tarte aux pommes' ou 'poisson' par exemple...";
         }
@@ -83,7 +86,7 @@ searchInput.addEventListener('input', function () {
     } else if (searchInput.value.length == 0) {
         tagsFiltered(tagsArray) // actualisation des listes
         document.querySelector('.search_error').style.display = "none"
-        document.querySelector('.total').style.display = "none"
+        document.querySelector('.total').style.display = "block"
         document.querySelector('.search_error_recipe').style.display = "none"
 
     } else if (searchInput.value.slice(-1) !== ' ') { // si espace entre deux mots, empêche le message d'erreur
@@ -94,4 +97,4 @@ searchInput.addEventListener('input', function () {
 
 })
 
-document.querySelector('.total').style.display = "none"
+document.querySelector('.total').style.display = "block"
