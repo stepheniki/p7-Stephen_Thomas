@@ -94,7 +94,7 @@ searchInput.addEventListener('input', function () {
         document.querySelector('.search_error').style.display = "block";
         document.querySelector('.search_error_recipe').style.display = "none";
     }
-
 })
 
 document.querySelector('.total').style.display = "block"
+document.querySelector('.total').innerHTML = recipes.length + " recettes trouvées"
